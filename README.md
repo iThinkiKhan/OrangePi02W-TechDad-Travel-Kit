@@ -18,6 +18,14 @@ I chose this case because of form factor, obviously, but the case itself is a go
 
 
 
+As for filing the MicroUSB holes, they only need to be widened marginally - particularly at the lower corners, where some millimeters of material need to be removed to allow for the oval shape of the USB C to slide in comfortably. A dremmel would be ideal for this, but I dont have one. I considered a few options, and your patience level may vary. 120 sandpaper on a small screwdriver, the screwdriver itself, some small, finely threaded screws - I finally went with a high speed drill bit filing out the corners. Be sure you clamp the case before you try this - your drill bit may bite into the aluminum and fling it from your grasp. I was able to do this in a few minutes with a test USB C cable.
+
+
+
+++CAUTION++ 1. Secure (clamp) your case before attempting to file or drill it. 2. Be careful of your thermal pad if already applied. 3. Fully clean your case before inserting your SBC! Aluminum is conductive, and can short your board.
+
+
+
 \* \*\*Network:\*\*
 
 &nbsp;   \* Internal WiFi: AP Mode (Family LAN)
