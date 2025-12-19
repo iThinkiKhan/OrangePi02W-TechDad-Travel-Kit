@@ -72,19 +72,19 @@ That is where RaspAP comes in. It will save us from all the hard work of network
 Cmd to download and run installer: curl -sL https://install.raspap.com | bash
 
 This will walk you through some settings. Do your thing, but for a travel router I want pretty much everything to be yes. I opted to leave AdBlock and VPNs off, for fear of disturbing the ships WiFi connection. 
---
+
 IF YOU WANT TO MAINTAIN HEADLESS - When it asks to stop systemd-networkd and resolved, opt for no or immediately lose ssh connection and the ability to download more packages if needed. Install continued anyway. DO NOT RESTART. 
 
 Since we did not disable networkd or resolved, we created a race condition where the old networking program and raspAP will fight for wlan0 on reboot. Lets resolve that before we restart.
 
-# Disable them from starting on boot, but do NOT stop them now
+#Disable them from starting on boot, but do NOT stop them now
 sudo systemctl disable systemd-networkd
 sudo systemctl disable systemd-resolved
 
-# Ensure the RaspAP services are set to start
+#Ensure the RaspAP services are set to start
 sudo systemctl enable hostapd
 sudo systemctl enable dnsmasq
---
+
 
 Open a web browser tab and hit http://(current IP wlan1) - this should show you a RaspAP admin panel. We are technically safe to reboot - RaspAP will broadcast an AP from wlan0. I prefer to be extra safe though, so before I rebooted I ensured my /etc/wpa_supplicant/wpa_supplicant.conf had the proper setup for internet access through wlan1 (and my udev rule would still work for naming with systemd disabled). Then, check cat /etc/dhcpcd.conf and make sure wlan0 is set as a static server (internal board wifi) and wlan1 (the dongle) is set as a client for board internet access. Mine was not, so I added nohook wpa_supplicant to the bottom of the wlan0 entry - locking it to AP mode. 
 
