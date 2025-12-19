@@ -55,9 +55,8 @@ Name=wlan1
 DHCP=yes
 
 [DHCPv4]
-
-(wlan0 is currently using Metric 600, so setting this lower means the system will prioritize it if detected)
 RouteMetric=100
+(wlan0 is currently using Metric 600, so setting this lower means the system will prioritize it if detected)
 
 Because we are using DHCP and want to stick to it (so we can connect to other networks), we need a good way of contacting the Pi. Installing and activating the avahi.daemon takes care of that for us on our own network. You can also set your hostname to something less conspicuous than orangepizero2w. Make sure you make it persistent!
 
